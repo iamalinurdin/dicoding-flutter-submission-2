@@ -10,20 +10,20 @@ class RestaurantList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Restaurant Apps'),
-      // ),
+      appBar: AppBar(
+        title: const Text('Restaurant Apps'),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+      ),
       body: FutureBuilder(
         future: DefaultAssetBundle.of(context).loadString('data/local_restaurant.json'),
         builder: (context, snapshot) {
           final List<Restaurant> restaurants = getRestaurants(snapshot.data);
 
-          // print(snapshot.data);
-
           return ListView.builder(
             itemCount: restaurants.length,
             itemBuilder: (context, index) {
-              print(restaurants[index].menus['foods']);
               return itemRestaurant(context, restaurants[index]);
             },
           );

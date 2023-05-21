@@ -53,6 +53,13 @@ class RestaurantDetailPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Icon(Icons.star),
+                    Text('${restaurant.rating.toString()}/5')
+                  ],
+                ),
+                const SizedBox(height: 10),
                 const Text(
                   'Description',
                   style: TextStyle(
